@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "nome": "Real Madrid",
+        "pais": "Espanha",
+        "titulos": 15,
+        "posicao": 1
+    },
+    {
+        "id": 2,
+        "nome": "AC Milan",
+        "pais": "Itália",
+        "titulos": 7,
+        "posicao": 2
+    },
+    {
+        "id": 3,
+        "nome": "Bayern Munich",
+        "pais": "Alemanha",
+        "titulos": 6,
+        "posicao": 3
+    },
+    {
+        "id": 4,
+        "nome": "Liverpool",
+        "pais": "Inglaterra",
+        "titulos": 6,
+        "posicao": 4
+    },
+    {
+        "id": 5,
+        "nome": "Barcelona",
+        "pais": "Espanha",
+        "titulos": 5,
+        "posicao": 5
+    }
+]
