@@ -1,0 +1,23 @@
+{
+  "name": "uefa-ranking",
+  "version": "1.0.0",
+  "description": "UEFA Ranking\r 1. Descrição\r Aplicação web que permite consultar e gerir uma coleção de equipas de futebol europeias, apresentando informações como o nome, país, títulos conquistados e posição no ranking UEFA.\r 2. Elemento da equipa\r Yami\r Evaldo\r 3. Estrutura de uma equipa\r {\r   \"id\": 1,\r   \"nome\": \"Real Madrid\",\r   \"pais\": \"Espanha\",\r   \"titulos\": 15,\r   \"posicao\": 1\r }\r 4. API\r MétodoRotaFunçãoGET/api/equipasConsultar todas as equipasPOST/api/equipasAdicionar uma equipaDELETE/api/equipas/:idApagar uma equipa\r GET /api/equipas\r Devolve todas as equipas.\r Status: 200.\r POST /api/equipas\r Recebe nome, país, títulos e posição.\r Cria automaticamente um ID.\r Devolve a equipa criada.\r Status: 201 se tiver sucesso.\r Status: 400 se os dados forem inválidos.\r DELETE /api/equipas/:id\r Recebe o ID da equipa a eliminar.\r Elimina a equipa se existir.\r Status: 204 se tiver sucesso.\r Status: 404 se a equipa não existir.\r 5. Responsabilidades\r Yami: servidor, armazenamento dos dados e funcionalidade de adicionar equipas.\r Evaldo: frontend, apresentação das equipas e funcionalidade de pesquisa, filtragem e eliminação.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yami-escola/UEFA-Ranking.git"
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Yami-escola/UEFA-Ranking/issues"
+  },
+  "homepage": "https://github.com/Yami-escola/UEFA-Ranking#readme",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.3.0"
+  }
+}
