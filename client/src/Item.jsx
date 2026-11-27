@@ -1,11 +1,15 @@
-function Item({ equipa }) 
-{
+function Item({ equipa }) {
+  // as 3 primeiras posições ficam com a bola dourada
+  const classePosicao = equipa.posicao <= 3 ? 'posicao top' : 'posicao';
+
   return (
-    <div style={{ border: '1px solid #ccc', padding: '10px', margin: '10px 0' }}>
-      <h3>{equipa.nome}</h3>
-      <p>País: {equipa.pais}</p>
-      <p>Títulos: {equipa.titulos}</p>
-      <p>Posição: {equipa.posicao}</p>
+    <div className="item">
+      <div className={classePosicao}>{equipa.posicao}</div>
+      <div className="info">
+        <h3>{equipa.nome}</h3>
+        <p>{equipa.pais}</p>
+      </div>
+      <div className="titulos">🏆 {equipa.titulos}</div>
     </div>
   );
 }

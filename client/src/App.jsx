@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Item from './Item';
+import './App.css';
 
 function App() {
   const [equipas, setEquipas] = useState([]);
@@ -28,14 +29,16 @@ function App() {
   );
 
   return (
-    <div>
+    <div className="app">
       <h1>UEFA Ranking</h1>
+      <div className="controlos">
       <input
         type="text"
         placeholder="Pesquisar equipa..."
         value={pesquisa}
         onChange={(e) => setPesquisa(e.target.value)}
       />
+      </div>
       {equipasVisiveis.length === 0 && <p>Nenhuma equipa encontrada.</p>}
       {equipasVisiveis.map((equipa) => (
         <Item key={equipa.id} equipa={equipa} />
