@@ -7,6 +7,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [erro, setErro] = useState('');
   const [pesquisa, setPesquisa] = useState('');
+  const [paisFiltro, setPaisFiltro] = useState('todos');
 
   useEffect(() => {
     fetch('http://localhost:3000/api/equipas')
@@ -23,8 +24,16 @@ function App() {
 
   if (loading) return <p>A carregar...</p>;
   if (erro) return <p>{erro}</p>;
-  // só as equipas cujo nome tem o texto da pesquisa (sem ligar a maiúsculas)
-  const equipasVisiveis = equipas.filter((equipa) =>
+
+  // os países do select: os que existem nas equipas, sem repetir
+  const paises = [...new Set(equipas.map((equipa) => equipa.pais))];
+
+  // primeiro filtra pelo país, depois pelo nome
+  let equipasVisiveis = equipas;
+  if (paisFiltro !== 'todos') {
+    equipasVisiveis = equipasVisiveis.filter((equipa) => equipa.pais === paisFiltro);
+  }
+  equipasVisiveis = equipasVisiveis.filter((equipa) =>
     equipa.nome.toLowerCase().includes(pesquisa.toLowerCase())
   );
 
@@ -32,13 +41,25 @@ function App() {
     <div className="app">
       <h1>UEFA Ranking</h1>
       <div className="controlos">
-      <input
-        type="text"
-        placeholder="Pesquisar equipa..."
-        value={pesquisa}
-        onChange={(e) => setPesquisa(e.target.value)}
-      />
+        <input
+          className="pesquisa"
+          type="text"
+          placeholder="Pesquisar equipa..."
+          value={pesquisa}
+          onChange={(e) => setPesquisa(e.target.value)}
+        />
+        <select value={paisFiltro} onChange={(e) => setPaisFiltro(e.target.value)}>
+          <option value="todos">Todos os países</option>
+          {paises.map((pais) => (
+            <option key={pais} value={pais}>
+              {pais}
+            </option>
+          ))}
+        </select>
       </div>
+      <p className="contagem">
+        A mostrar {equipasVisiveis.length} de {equipas.length}
+      </p>
       {equipasVisiveis.length === 0 && <p>Nenhuma equipa encontrada.</p>}
       {equipasVisiveis.map((equipa) => (
         <Item key={equipa.id} equipa={equipa} />
